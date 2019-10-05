@@ -1,10 +1,9 @@
 import * as React from "react";
 
-
-export const Welcome = (): JSX.Element => {
+export const Welcome = ({ match }: any): JSX.Element => {
   return (
     <div>
-      <h1>BigLibra's Main Page</h1>
+      <h1>BigLibra's { match.url } Page</h1>
     </div>
   );
 }
