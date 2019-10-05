@@ -4,4 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+.btn-secondary {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+}
+
 @import '~bootstrap/dist/css/bootstrap.min.css'
