@@ -1,10 +1,16 @@
-import * as React from "react";
+import React, { useContext, useMemo } from 'react';
+import { urlContext } from './state/url.context';
 
 const Library = ({ match }: any): JSX.Element => {
+  const { setCurrentUrl } = useContext(urlContext);
+  
+  useMemo(() => {
+    setCurrentUrl(match.url);
+  }, [match.url, setCurrentUrl]);
 
   return (
-    <div>
-      <h2> {match.url} Page</h2>
+    <div className="container">
+      <h1> {match.url} Page</h1>
     </div>
   );
 }

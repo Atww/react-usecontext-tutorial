@@ -1,22 +1,28 @@
-import "./index.scss";
-import * as React from 'react';
+import './index.scss';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Library from './library.component';
 import Welcome from './welcome.component';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import Header from "./header.component";
+import AppLayout from './containers/app-layout.component';
+import { urlContext } from './state/url.context';
+import { useUrl } from './hooks/url.hook';
 
+function App() {
+  const url = useUrl();
 
-export function App() {
   return (
     <div className="App">
-      <Router>
-        <Header />
-        <Switch>
-          <Route path="/welcome" component={Welcome} />
-          <Route path="/library" render={Library} />
-          <Redirect from="*" to="/welcome" />
-        </Switch>
-      </Router>
+      <urlContext.Provider value={url}>
+        <Router>
+          <AppLayout>
+            <Switch>
+              <Route path="/welcome" component={Welcome} />
+              <Route path="/library" component={Library} />
+              <Redirect from="*" to="/welcome" />
+            </Switch>
+          </AppLayout>
+        </Router>
+      </urlContext.Provider>
     </div>
   );
 }
