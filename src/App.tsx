@@ -1,14 +1,16 @@
 import './index.scss';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import Library from './library.component';
-import Welcome from './welcome.component';
+import Library from './components/library.component';
+import Welcome from './components/welcome.component';
 import AppLayout from './containers/app-layout.component';
 import { urlContext } from './state/url.context';
 import { useUrl } from './hooks/url.hook';
 
 function App() {
   const url = useUrl();
+
+  console.log(url);
 
   return (
     <div className="App">

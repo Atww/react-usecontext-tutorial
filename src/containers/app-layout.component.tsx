@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../header.component';
+import Header from '../components/header.component';
 import { urlContext } from '../state/url.context';
 
 export default ({ children }: { children: React.ReactNode }): JSX.Element => {

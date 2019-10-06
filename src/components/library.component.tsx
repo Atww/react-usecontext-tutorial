@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import { urlContext } from './state/url.context';
+import { urlContext } from '../state/url.context';
 
 const Library = ({ match }: any): JSX.Element => {
   const { setCurrentUrl } = useContext(urlContext);
